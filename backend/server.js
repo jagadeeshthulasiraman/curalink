@@ -144,7 +144,12 @@ async function callLLM(messages) {
   return data.choices?.[0]?.message?.content || "{}";
 }
 
-// ─── 7. MAIN QUERY ENDPOINT ───────────────────────────────────────────────────
+// ─── 7. HEALTH CHECK ─────────────────────────────────────────────────────────
+app.get("/", (req, res) => {
+  res.send("Curalink API is running!");
+});
+
+// ─── 8. MAIN QUERY ENDPOINT ───────────────────────────────────────────────────
 app.post("/api/query", async (req, res) => {
   const { query, disease, patientName, location, history = [] } = req.body;
 
