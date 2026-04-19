@@ -19,7 +19,7 @@ export default function App() {
     const userEntry = { role: "user", content: query };
 
     try {
-      const res = await fetch("/api/query", {
+      const res = await fetch(`https://curalink-d6hp.onrender.com/api/query`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query, disease, patientName, location, history })
